@@ -9,6 +9,19 @@ straight to the source section.
 (`okf serve`, shipped in okf-kit 0.3.0). The shell just launches that server and
 opens a window. Update okf-kit and the app gets the changes for free.
 
+## Download
+
+Grab a prebuilt bundle from **[Releases](https://github.com/vinodborole/okf-desktop/releases/latest)** — no Python/Node needed:
+
+```bash
+# Linux (x64)
+tar -xzf okf-desktop-linux-x64.tar.gz && ./okf-desktop/okf-desktop
+```
+
+Linux needs the system GTK 3 + WebKit2GTK (standard on most desktops; see the
+release notes if it won't start). macOS/Windows: build from source with
+`./build.sh` for now.
+
 ```
 okf-desktop/
 ├─ ui/            React + Vite — the 5 screens (Library, Discover, Read, Chat, Settings)

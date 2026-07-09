@@ -10,6 +10,8 @@
 # - Linux: uses the system GTK3 + WebKit2GTK (present on typical desktops), same as
 #   pywebview does when run normally.
 
+import sys
+
 from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 
 datas = [("ui/dist", "ui/dist")]
@@ -22,10 +24,12 @@ hiddenimports += collect_submodules("okf_kit.serve")
 hiddenimports += [
     "okf_kit", "okf_kit.serve.app", "okf_kit.chat.agent", "okf_kit.chat.retrieval",
     "okf_kit.chat.providers", "okf_kit.chat.history",
-    # pywebview GTK backend pulls these gi modules dynamically
-    "gi", "gi.repository.Gtk", "gi.repository.Gdk", "gi.repository.GLib",
-    "gi.repository.WebKit2",
 ]
+if sys.platform.startswith("linux"):
+    # pywebview's GTK backend pulls these gi modules dynamically
+    hiddenimports += ["gi", "gi.repository.Gtk", "gi.repository.Gdk",
+                      "gi.repository.GLib", "gi.repository.WebKit2"]
+# macOS uses WKWebView and Windows the Edge WebView2 runtime — no gi needed.
 
 excludes = [
     "trafilatura", "selectolax", "lxml", "crawl4ai",       # crawl stack — not used
