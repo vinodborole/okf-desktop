@@ -1,9 +1,20 @@
 # okf desktop
 
+[![Release](https://img.shields.io/github/v/release/vinodborole/okf-desktop?color=2E6B4E)](https://github.com/vinodborole/okf-desktop/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/vinodborole/okf-desktop/total?color=2E6B4E&label=downloads)](https://github.com/vinodborole/okf-desktop/releases)
+[![Release build](https://img.shields.io/github/actions/workflow/status/vinodborole/okf-desktop/release.yml?label=build)](https://github.com/vinodborole/okf-desktop/actions/workflows/release.yml)
+![Platforms](https://img.shields.io/badge/platforms-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-2E6B4E)
+[![Built on okf-kit](https://img.shields.io/badge/built%20on-okf--kit-2E6B4E)](https://github.com/vinodborole/okf-kit)
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue)](LICENSE)
+
 A lightweight desktop app for [okf-kit](https://github.com/vinodborole/okf-kit):
 browse the registry, install "books" (OKF bundles), read them like a book, and
 chat with them (offline or with your own LLM) — with cited answers that jump
 straight to the source section.
+
+<p align="center">
+  <img src="assets/demo.gif" alt="okf desktop — Library, Discover, Read, Chat, Settings" width="820">
+</p>
 
 **It contains no okf-kit logic.** The UI is pure React over okf-kit's local API
 (`okf serve`, shipped in okf-kit 0.3.0). The shell just launches that server and
