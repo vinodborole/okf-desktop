@@ -11,16 +11,19 @@ opens a window. Update okf-kit and the app gets the changes for free.
 
 ## Download
 
-Grab a prebuilt bundle from **[Releases](https://github.com/vinodborole/okf-desktop/releases/latest)** — no Python/Node needed:
+Prebuilt bundles for **Linux, macOS, and Windows** are on the
+**[Releases](https://github.com/vinodborole/okf-desktop/releases/latest)** page —
+no Python/Node/pip needed. Each is built automatically by CI on its own platform.
 
 ```bash
 # Linux (x64)
 tar -xzf okf-desktop-linux-x64.tar.gz && ./okf-desktop/okf-desktop
 ```
 
-Linux needs the system GTK 3 + WebKit2GTK (standard on most desktops; see the
-release notes if it won't start). macOS/Windows: build from source with
-`./build.sh` for now.
+macOS and Windows: unzip and run the executable. They're **unsigned**, so approve
+the first launch (macOS: right-click → Open; Windows: SmartScreen → More info →
+Run anyway). Linux needs the system GTK 3 + WebKit2GTK (standard on most desktops).
+See the release notes for details.
 
 ```
 okf-desktop/
