@@ -1,0 +1,7 @@
+# Desktop shell. okf-kit[serve] provides the API the shell talks to.
+okf-kit[serve]>=0.3.1
+pywebview>=5.0
+# pywebview needs a platform webview backend:
+#   Linux:   pip install pywebview[qt]     (or [gtk] with system GTK/WebKit2)
+#   Windows: uses the built-in Edge WebView2 (no extra install)
+#   macOS:   uses the built-in WKWebView (no extra install)
