@@ -86,3 +86,19 @@ coll = COLLECT(
     upx_exclude=[],
     name="okf-desktop",
 )
+
+# macOS: wrap it in a proper .app bundle so it's ad-hoc signable (deeply, incl.
+# the bundled Python.framework) — that turns Gatekeeper's dead-end "damaged"
+# message into the normal, bypassable "unidentified developer" prompt.
+if sys.platform == "darwin":
+    app = BUNDLE(
+        coll,
+        name="okf-desktop.app",
+        icon=None,
+        bundle_identifier="com.vinodborole.okf-desktop",
+        info_plist={
+            "NSHighResolutionCapable": True,
+            "LSApplicationCategoryType": "public.app-category.developer-tools",
+            "CFBundleShortVersionString": "0.1.2",
+        },
+    )

@@ -64,7 +64,12 @@ jobs:
         run: tar -C dist -czf "${{ matrix.artifact }}" okf-desktop
       - name: Package (macOS)
         if: runner.os == 'macOS'
-        run: cd dist && zip -qry "../${{ matrix.artifact }}" okf-desktop
+        run: |
+          # Deep ad-hoc sign the whole .app (incl. Python.framework), then use
+          # ditto (not zip) so the signature + framework symlinks survive.
+          codesign --force --deep --sign - dist/okf-desktop.app
+          codesign --verify --deep --strict dist/okf-desktop.app && echo "signature OK"
+          ditto -c -k --keepParent dist/okf-desktop.app "${{ matrix.artifact }}"
       - name: Package (Windows)
         if: runner.os == 'Windows'
         shell: pwsh

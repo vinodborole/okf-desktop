@@ -31,10 +31,19 @@ no Python/Node/pip needed. Each is built automatically by CI on its own platform
 tar -xzf okf-desktop-linux-x64.tar.gz && ./okf-desktop/okf-desktop
 ```
 
-macOS and Windows: unzip and run the executable. They're **unsigned**, so approve
-the first launch (macOS: right-click → Open; Windows: SmartScreen → More info →
-Run anyway). Linux needs the system GTK 3 + WebKit2GTK (standard on most desktops).
-See the release notes for details.
+macOS and Windows builds are **unsigned** (no code-signing certificate yet), so the
+OS warns on first launch:
+
+- **macOS** — unzip to get `okf-desktop.app`. Because it's downloaded + unsigned,
+  Gatekeeper may say it's "damaged." It isn't — that's the quarantine flag. Clear it:
+  ```bash
+  xattr -dr com.apple.quarantine ~/Downloads/okf-desktop.app
+  open ~/Downloads/okf-desktop.app
+  ```
+  (Or: **System Settings → Privacy & Security → Open Anyway**.)
+- **Windows** — unzip and run `okf-desktop\okf-desktop.exe`; SmartScreen → **More
+  info → Run anyway**.
+- **Linux** — needs system GTK 3 + WebKit2GTK (standard on most desktops).
 
 ```
 okf-desktop/
