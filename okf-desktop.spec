@@ -21,6 +21,7 @@ hiddenimports = []
 hiddenimports += collect_submodules("uvicorn")          # dynamic loop/protocol imports
 hiddenimports += collect_submodules("keyring")          # credential backends
 hiddenimports += collect_submodules("okf_kit.serve")
+hiddenimports += collect_submodules("openai")  # lazy-imported by the chat provider
 hiddenimports += [
     "okf_kit", "okf_kit.serve.app", "okf_kit.chat.agent", "okf_kit.chat.retrieval",
     "okf_kit.chat.providers", "okf_kit.chat.history",
