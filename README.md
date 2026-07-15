@@ -42,7 +42,12 @@ OS warns on first launch:
   ```
   (Or: **System Settings → Privacy & Security → Open Anyway**.)
 - **Windows** — unzip and run `okf-desktop\okf-desktop.exe`; SmartScreen → **More
-  info → Run anyway**.
+  info → Run anyway**. Because the `.exe` is an unsigned PyInstaller build, some
+  antivirus/EDR (e.g. SentinelOne, Defender) may **false-positive** it as a threat
+  and quarantine it — the app isn't malicious, it just has no code-signing identity
+  to vouch for it. On a managed/corporate machine, have IT **allowlist** it (by the
+  SHA-256 published in the release, or by publisher once it's signed). Or run from
+  source: `pip install "okf-kit[serve,chat]" pywebview` then `python shell/app.py`.
 - **Linux** — needs system GTK 3 + WebKit2GTK (standard on most desktops).
 
 ```

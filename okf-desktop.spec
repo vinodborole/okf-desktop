@@ -76,6 +76,7 @@ exe = EXE(
     upx=False,
     console=False,        # GUI app — no terminal window
     disable_windowed_traceback=False,
+    version="version_info.txt" if sys.platform == "win32" else None,  # Windows product metadata
 )
 
 coll = COLLECT(
